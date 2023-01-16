@@ -2,7 +2,7 @@
 
 For [this assignment](https://education.launchcode.org/java-web-development/assignments/tech-jobs-console.html), students are asked to complete a console app that allows users to browse, search, and print listings of open jobs.
 
-## Assignment Requirements
+## Assignment Requirements 
 
 1. Implement the `printJobs` method
 2. Create the `findByValue` method
