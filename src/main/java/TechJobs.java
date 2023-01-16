@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -38,6 +35,7 @@ public class TechJobs {
 
                 String columnChoice = getUserSelection("List", columnChoices);
 
+                //assert columnChoice != null;
                 if (columnChoice.equals("all")) {
                     printJobs(JobData.findAll());
                 } else {
@@ -62,7 +60,7 @@ public class TechJobs {
                 String searchTerm = in.nextLine();
 
                 if (searchField.equals("all")) {
-                    printJobs(JobData.findByValue(searchTerm));
+                   printJobs(JobData.findByValue(searchTerm));
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                 }
@@ -72,7 +70,6 @@ public class TechJobs {
 
     // ﻿Returns the key of the selected item from the choices Dictionary
     private static String getUserSelection(String menuHeader, HashMap<String, String> choices) {
-
         int choiceIdx = -1;
         Boolean validChoice = false;
         String[] choiceKeys = new String[choices.size()];
@@ -119,7 +116,24 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+//        ArrayList<HashMap<String ,String>> print=someJobs;
+//        for(HashMap<String,String>temp:print){
+//            System.out.println(temp+":"+temp.values());
+//        }
+      if(someJobs.size()!=0) {
+          for (HashMap<String, String> print : someJobs) {
+              String[] temp = print.values().toArray(new String[0]);
+              String[] tempKey = print.keySet().toArray(new String[0]);
+              System.out.println("\n" + "*****");
+              for (int i = 0; i < temp.length; i++) {
+                  System.out.println(tempKey[i] + ": " + temp[i]);
+              }
+              System.out.println("*****");
+          }
+      }else{
+          System.out.print("No Results");
+      }
 
-        System.out.println("printJobs is not implemented yet");
+       // System.out.println("printJobs is not implemented yet");
     }
 }

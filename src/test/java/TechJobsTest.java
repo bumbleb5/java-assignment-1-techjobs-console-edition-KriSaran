@@ -40,7 +40,9 @@ public class TechJobsTest {
     @Test
     public void testPrintJobs() throws IOException {
         String input = "0\n2\nBuzzbold\nx";
+       // String input = "Buzzbold";
         String output = runProgramWithInput(input);
+        System.out.println("KRISH:" + output);
         String expected = getFileContents("src/test/resources/testPrintJobs.txt");
         assertEquals(expected, output);
     }
